@@ -1,0 +1,12 @@
+{
+  "name": "thetonebox",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:frontend": "pnpm -F frontend dev",
+    "dev:backend": "pnpm -F backend dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test"
+  }
+}

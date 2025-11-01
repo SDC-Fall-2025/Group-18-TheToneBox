@@ -1,0 +1,46 @@
+# === Node & pnpm ===
+node_modules/
+.pnpm-store/
+pnpm-debug.log
+npm-debug.log
+yarn-error.log
+
+# === Build outputs ===
+dist/
+build/
+out/
+.next/
+.vercel/
+coverage/
+
+# === Logs ===
+logs/
+*.log
+*.log.*
+*.out
+*.err
+
+# === Env files ===
+.env
+.env.*
+!.env.example
+
+# === Editor & IDE ===
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# === System files ===
+.DS_Store
+Thumbs.db
+
+# === TypeScript ===
+*.tsbuildinfo
+
+# === Temporary ===
+tmp/
+temp/
+.cache/
