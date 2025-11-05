@@ -8,10 +8,24 @@
     "source.organizeImports": "explicit"
   },
 
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": "apps/frontend/node_modules/typescript/lib",
   "eslint.workingDirectories": [{ "mode": "auto" }],
 
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "cSpell.words": ["heroui"],
+
+  "tailwindCSS.includeLanguages": {
+    "typescriptreact": "html",
+    "javascriptreact": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["className=\"([^\"]*)", "class=\"([^\"]*)"],
+    ["className=\\{`([^`]*)", "class=\\{`([^`]*)"]
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "editor.quickSuggestions": {
+    "strings": true
   }
 }
