@@ -1,5 +1,13 @@
 import { lazy, Suspense } from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, useRouteError } from 'react-router-dom'
+import ErrorFallback from '../components/ErrorFallback'
+import LoadingFallback from '../components/LoadingFallback'
+
+// Router Error Boundary wrapper component
+function RouterErrorBoundary() {
+  const error = useRouteError() as Error;
+  return <ErrorFallback error={error} resetErrorBoundary={() => window.location.reload()} />;
+}
 
 // lazy load
 const MainLayout = lazy(() => import('../components/layout/MainLayout/MainLayout'))
@@ -13,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <RouterErrorBoundary />,
 
     // children works similar like switch-case with breaks
     children: [
@@ -45,7 +54,7 @@ const router = createBrowserRouter([
 // router component
 export function Router() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoadingFallback />}>
       <RouterProvider router={router} />
     </Suspense>
   )

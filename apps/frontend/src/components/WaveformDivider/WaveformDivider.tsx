@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useState } from "react";
 
 interface WaveformDividerProps {
   barCount?: number;
@@ -11,27 +11,27 @@ export default function WaveformDivider({
   animated = true,
   className = "",
 }: WaveformDividerProps) {
-  // Generate random heights for waveform bars
-  const barHeights = useMemo(() => {
-    return Array.from({ length: barCount }, () => {
-      return Math.random() * 12 + 4; // Random height between 4px and 16px
-    });
-  }, [barCount]);
+  // Generate random heights and durations for waveform bars - only once on mount
+  const [barHeights] = useState(() =>
+    Array.from({ length: barCount }, () => Math.random() * 12 + 4)
+  );
+
+  const [barDurations] = useState(() =>
+    Array.from({ length: barCount }, () => 1 + Math.random() * 0.5)
+  );
 
   return (
     <div className={`flex items-center justify-center gap-1 ${className}`}>
       {barHeights.map((height, index) => (
         <div
           key={index}
-          className={`w-0.5 bg-primary rounded-full ${
-            animated ? "animate-pulse" : ""
-          }`}
+          className="w-0.5 bg-primary rounded-full"
           style={{
             height: `${height}px`,
-            animationDelay: animated ? `${index * 0.1}s` : undefined,
-            animationDuration: animated
-              ? `${1 + Math.random() * 0.5}s`
+            animation: animated
+              ? `waveform-pulse ${barDurations[index]}s ease-in-out infinite`
               : undefined,
+            animationDelay: animated ? `${index * 0.1}s` : undefined,
           }}
         />
       ))}
