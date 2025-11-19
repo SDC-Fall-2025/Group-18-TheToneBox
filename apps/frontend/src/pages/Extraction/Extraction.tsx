@@ -44,7 +44,7 @@ export default function Extraction() {
       <h1 className="text-3xl font-logo font-bold mb-8">Extraction Mode</h1>
 
       {/* File Upload Section */}
-      <div className="w-full max-w-3xl mb-8">
+      <div className="w-full max-w-3xl mb-6">
         <div
           className={`relative border-2 border-dashed rounded-xl p-12 transition-all cursor-pointer ${
             isDragging
@@ -101,12 +101,19 @@ export default function Extraction() {
       </div>
 
       {/* Parameter Input Section */}
-      <ParameterInput
-        placeholder="Describe/Type in parameters..."
-        tags={tags}
-        onTagsChange={setTags}
-        className="max-w-3xl mb-12"
-      />
+      <div className="w-full max-w-3xl mb-12">
+        <h2 className="text-xl font-logo font-semibold mb-4 text-foreground">
+          Guide the Extraction
+        </h2>
+        <p className="text-sm text-foreground/60 mb-4">
+          Specify which instruments or sounds you want to extract from your audio file
+        </p>
+        <ParameterInput
+          placeholder="e.g., guitar, bass synth, kick drum, lead vocals..."
+          tags={tags}
+          onTagsChange={setTags}
+        />
+      </div>
 
       {/* Extraction Results Section - Placeholder for now */}
       {uploadedFile && (

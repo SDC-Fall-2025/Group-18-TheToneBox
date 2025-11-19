@@ -1,4 +1,5 @@
 import TypewriterPlaceholder from "@/components/TypewriterPlaceholder/TypewriterPlaceholder";
+import { addToast } from "@heroui/toast";
 import { Chip, Input } from "@heroui/react";
 import { useState, type KeyboardEvent } from "react";
 
@@ -22,8 +23,17 @@ export default function ParameterInput({
       e.preventDefault();
       if (!tags.includes(inputValue.trim())) {
         onTagsChange([...tags, inputValue.trim()]);
+        setInputValue("");
+      } else {
+        // Show toast for duplicate tag
+        addToast({
+          title: "Duplicate Tag",
+          description: "This tag already exists!",
+          color: "warning",
+          timeout: 3000,
+        });
+        setInputValue("");
       }
-      setInputValue("");
     }
   };
 
@@ -41,7 +51,7 @@ export default function ParameterInput({
             variant="solid"
             onClose={() => removeTag(tag)}
             classNames={{
-              base: "h-8",
+              base: "h-8 tag-pop-in",
               content: "font-medium text-foreground",
               closeButton: "text-foreground",
             }}
