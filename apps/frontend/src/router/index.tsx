@@ -7,6 +7,7 @@ const Home = lazy(() => import('../pages/Home'))
 const About = lazy(() => import('../pages/About'))
 const NotFound = lazy(() => import('../pages/NotFound'))
 const Creator = lazy(() => import('../pages/Creator'))
+const Extraction = lazy(() => import('../pages/Extraction'))
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: 'creator',
         element: <Creator />
+      },
+      {
+        path: 'extraction',
+        element: <Extraction />
       },
       // go to Not Found page if the route matches nothing
       {
