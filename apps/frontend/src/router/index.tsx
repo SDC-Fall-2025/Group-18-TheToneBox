@@ -1,28 +1,43 @@
 import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-// 懒加载页面组件
+// lazy load
+const MainLayout = lazy(() => import('../components/layout/MainLayout/MainLayout'))
 const Home = lazy(() => import('../pages/Home'))
 const About = lazy(() => import('../pages/About'))
 const NotFound = lazy(() => import('../pages/NotFound'))
+const Creator = lazy(() => import('../pages/Creator'))
 
-// 路由配置
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/about',
-    element: <About />,
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  },
+    element: <MainLayout />,
+
+    // children works similar like switch-case with breaks
+    children: [
+      // the root index
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: 'about',
+        element: <About />
+      },
+      {
+        path: 'creator',
+        element: <Creator />
+      },
+      // go to Not Found page if the route matches nothing
+      {
+        path: '*',
+        element: <NotFound />
+      }
+    ]
+  }
 ])
 
-// 路由组件（包含 Suspense）
+// router component
 export function Router() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
