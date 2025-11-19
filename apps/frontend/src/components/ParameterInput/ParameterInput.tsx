@@ -1,6 +1,6 @@
 import TypewriterPlaceholder from "@/components/TypewriterPlaceholder/TypewriterPlaceholder";
-import { addToast } from "@heroui/toast";
 import { Chip, Input } from "@heroui/react";
+import { addToast } from "@heroui/toast";
 import { useState, type KeyboardEvent } from "react";
 
 interface ParameterInputProps {
@@ -59,7 +59,7 @@ export default function ParameterInput({
             {tag}
           </Chip>
         ))}
-        <div className="flex-1 min-w-[200px] relative">
+        <div className="flex-1 min-w-[100px] relative">
           <Input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
