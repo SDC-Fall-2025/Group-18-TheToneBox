@@ -1,0 +1,24 @@
+// Navigation button base styles
+.navButton {
+  width: 100%;
+  font-family: "Audiowide", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  justify-content: flex-start;
+  transition: all 0.3s;
+  height: 3rem;
+
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transform: scale(1.02);
+  }
+
+  // Active state styles - enhanced background
+  &:global(.active) {
+    background: linear-gradient(
+      90deg,
+      rgba(212, 160, 23, 0.5) 0%,
+      rgba(212, 160, 23, 0.2) 100%
+    ) !important;
+  }
+}

@@ -13,6 +13,7 @@
     "@fontsource/audiowide": "^5.2.7",
     "@fontsource/space-grotesk": "^5.2.10",
     "@heroui/react": "^2.8.5",
+    "@heroui/toast": "^2.0.17",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "lucide-react": "^0.554.0",

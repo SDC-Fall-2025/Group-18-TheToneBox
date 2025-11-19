@@ -28,3 +28,33 @@ textarea:focus,
 [contenteditable="true"]:focus {
   animation: caret-glow 1.2s ease-in-out infinite;
 }
+
+/* Equalizer animation for active navigation */
+@keyframes equalizer-bounce {
+  0%,
+  100% {
+    height: 30%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+/* Tag pop-out animation */
+@keyframes tag-pop-out {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.tag-pop-in {
+  animation: tag-pop-out 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
