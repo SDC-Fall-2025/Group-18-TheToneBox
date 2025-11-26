@@ -5,6 +5,10 @@ pnpm-debug.log
 npm-debug.log
 yarn-error.log
 
+# Only use pnpm, not npm or yarn
+package-lock.json
+yarn.lock
+
 # === Build outputs ===
 dist/
 build/
